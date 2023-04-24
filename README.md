@@ -7,7 +7,7 @@ An application that allows users to read news from various sources using React N
 <img src="https://user-images.githubusercontent.com/101312630/233991951-45ecdf82-9eea-4b9d-a5db-2bd9c81cf0ee.jpg"  width="40%" height="40%">
 
 ## Getting Start
-- To run the app, simply run
+To run the app, simply run:
 - yarn install && expo start
 - And scan the QR code in the Expo client app.
 
