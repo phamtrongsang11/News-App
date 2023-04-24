@@ -10,5 +10,5 @@ An application that allows users to read news from various sources using React N
 - yarn install && expo start
 - And scan the QR code in the Expo client app.
 ## Expo demo (You can scan qr code below with your expo app)
-<img src="https://user-images.githubusercontent.com/101312630/233988366-ef2e457b-4579-4ced-a98d-e78d0ce6e739.svg"  width="50%" height="50%">
+<img src="https://user-images.githubusercontent.com/101312630/233988366-ef2e457b-4579-4ced-a98d-e78d0ce6e739.svg"  width="30%" height="30%">
 
