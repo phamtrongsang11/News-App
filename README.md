@@ -1,5 +1,5 @@
-![Screenshot_20230424_190007_Expo Go](https://user-images.githubusercontent.com/101312630/233990318-15c6636f-0c65-4f2e-b423-59665c7974c7.jpg)
 # News-App
+![Screenshot_20230424_190007_Expo Go](https://user-images.githubusercontent.com/101312630/233990318-15c6636f-0c65-4f2e-b423-59665c7974c7.jpg)
 An application that allows users to read news from various sources using React Native and News API. It include. It has a several feature like:
 - Display breaking news, latest news,...
 - The ability to search for news based on various criteria such as country, category, title.
