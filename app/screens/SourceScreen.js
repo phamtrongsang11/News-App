@@ -36,30 +36,31 @@ const SourceScreen = () => {
 	useEffect(() => {
 		newsApi.request(language);
 	}, [language]);
-	console.log(newsApi.data);
 
 	return (
 		<>
 			<ActivityIndicator visible={newsApi.loading} />
 			{newsApi.error && <Error error={newsApi.error} />}
 			<Screen style={styles.container}>
-				<FlatList
-					data={newsApi.data.sources}
-					renderItem={({ item }) => (
-						<Source
-							style={styles.containerList}
-							name={item.name}
-							description={item.description}
-							category={item.category}
-							country={item.country}
-							url={item.url}
-						/>
-					)}
-					keyExtractor={(item) => item.id}
-					ListHeaderComponent={
-						<ListHeader language={language} setLanguage={setLanguage} />
-					}
-				/>
+				{newsApi.data && (
+					<FlatList
+						data={newsApi.data.sources}
+						renderItem={({ item }) => (
+							<Source
+								style={styles.containerList}
+								name={item.name}
+								description={item.description}
+								category={item.category}
+								country={item.country}
+								url={item.url}
+							/>
+						)}
+						keyExtractor={(item) => item.id}
+						ListHeaderComponent={
+							<ListHeader language={language} setLanguage={setLanguage} />
+						}
+					/>
+				)}
 			</Screen>
 		</>
 	);

@@ -8,7 +8,6 @@ const client = create({
 });
 
 const get = client.get;
-
 client.get = async (url, params, axiosConfig) => {
 	const response = await get(url, params, axiosConfig);
 	if (response.ok) {

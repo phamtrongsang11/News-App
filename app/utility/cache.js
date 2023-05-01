@@ -3,7 +3,6 @@ import moment from 'moment';
 
 const prefix = 'cache';
 const expiryInMinutes = 5;
-
 const store = async (key, value) => {
 	try {
 		const item = { value, timestamp: Date.now() };

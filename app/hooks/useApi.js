@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { useState } from 'react';
+import useOffline from './useOffline';
 
 export default useApi = (apiFunction) => {
 	const [data, setData] = useState([]);

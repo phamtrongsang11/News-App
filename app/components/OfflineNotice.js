@@ -1,18 +1,18 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-
 import Constants from 'expo-constants';
-import { useNetInfo } from '@react-native-community/netinfo';
 import colors from '../config/colors';
 
+import useOffline from '../hooks/useOffline';
 const OfflineNotice = () => {
-	const netInfo = useNetInfo();
-	if (netInfo.type !== 'unknown' && netInfo.isInternetReachable === false)
+	const isOffline = useOffline();
+	if (isOffline) {
 		return (
 			<View style={styles.container}>
 				<Text style={styles.text}>No Internet Connection</Text>
 			</View>
 		);
+	}
 	return null;
 };
 

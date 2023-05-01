@@ -13,8 +13,8 @@ const CategoryPickerItem = ({ item, onPress }) => {
 					name={item.icon}
 					size={80}
 				/>
+				<Text style={styles.label}>{item.name}</Text>
 			</TouchableOpacity>
-			<Text style={styles.label}>{item.name}</Text>
 		</View>
 	);
 };

@@ -13,6 +13,7 @@ import Screen from './Screen';
 import PickerItem from './PickerItem';
 import colors from '../config/colors';
 import Separator from './Seperator';
+import useOffline from '../hooks/useOffline';
 
 const AppPicker = ({
 	icon,
@@ -25,9 +26,10 @@ const AppPicker = ({
 	width = '100%',
 }) => {
 	const [modalVisible, setModalVisible] = useState(false);
+	const isOffline = useOffline();
 	return (
 		<>
-			<TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
+			<TouchableWithoutFeedback onPress={() => setModalVisible(!isOffline)}>
 				<View style={[styles.container, { width }]}>
 					{icon && (
 						<MaterialCommunityIcons

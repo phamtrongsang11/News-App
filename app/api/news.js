@@ -7,11 +7,9 @@ const getHeadlines = (country, category, page) => {
 		`/top-headlines?apiKey=${API_KEY}&country=${country.id}&category=${category.name}&page=${page}`
 	);
 };
-
 const searchArticles = (query) => {
 	return client.get(`/everything?q=${query}&apiKey=${API_KEY}`);
 };
-
 const getSourceByLanguage = (language) => {
 	return client.get(
 		`/top-headlines/sources?language=${language.id}&apiKey=${API_KEY}`

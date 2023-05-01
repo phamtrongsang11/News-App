@@ -1,13 +1,13 @@
-import { useNetInfo } from '@react-native-community/netinfo';
 import React from 'react';
 import { View, StyleSheet, TextInput } from 'react-native';
+import useOffline from '../hooks/useOffline';
 
 const SearchBar = ({ searchText, setSearchText, onSubmit }) => {
-	const netInfo = useNetInfo();
+	const isOffline = useOffline();
 	return (
 		<View style={styles.container}>
 			<TextInput
-				editable={netInfo.isInternetReachable}
+				editable={!isOffline}
 				style={styles.input}
 				placeholder="Search"
 				value={searchText}

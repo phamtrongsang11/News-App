@@ -44,7 +44,7 @@ const Article = ({
 								Source: <Text style={styles.source}>{source}</Text>
 							</Text>
 							<Text style={styles.date}>
-								{moment(publishedAt).format('MMM Do YYYY')}
+								{moment(publishedAt).format('MMM Do YY')}
 							</Text>
 						</View>
 						{author && (

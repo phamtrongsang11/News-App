@@ -11,8 +11,8 @@ import colors from '../config/colors';
 import CategoryPickerItem from '../components/CategoryPickerItem';
 import ActivityIndicator from '../components/ActivityIndicator';
 import NextButton from '../components/NextButton';
-import { useNetInfo } from '@react-native-community/netinfo';
 import Error from '../components/Error';
+import useOffline from '../hooks/useOffline';
 
 const ListHeader = ({ country, setCountry, category, setCategory }) => {
 	return (
@@ -47,12 +47,10 @@ const HomeScreen = () => {
 	const [category, setCategory] = useState(data.category[0]);
 	const [country, setCountry] = useState(data.countries[0]);
 	const [page, setPage] = useState(1);
-	const [refreshing, setRefreshing] = useState(false);
 
 	const flatListRef = React.useRef();
-	const netInfo = useNetInfo();
-
 	const newsApi = useApi(news.getHeadlines);
+	const isOffline = useOffline();
 
 	useEffect(() => {
 		newsApi.request(country, category, page);
@@ -63,50 +61,52 @@ const HomeScreen = () => {
 			<ActivityIndicator visible={newsApi.loading} />
 			{newsApi.error && <Error error={newsApi.error} />}
 			<Screen style={styles.container}>
-				<FlatList
-					ref={flatListRef}
-					data={newsApi.data.articles}
-					renderItem={({ item }) => (
-						<Article
-							urlToImage={item.urlToImage}
-							title={item.title}
-							description={item.description}
-							author={item.author}
-							publishedAt={item.publishedAt}
-							source={item.source.name}
-							url={item.url}
-						/>
-					)}
-					keyExtractor={(item) => item.title}
-					refreshing={refreshing}
-					onRefresh={() => {
-						setPage(1);
-						newsApi.request(country, category, 1);
-					}}
-					ListHeaderComponent={
-						<ListHeader
-							country={country}
-							setCountry={setCountry}
-							category={category}
-							setCategory={setCategory}
-						/>
-					}
-					ListFooterComponent={
-						newsApi.data.articles &&
-						netInfo.isInternetReachable && (
-							<NextButton
-								title="More Article"
-								onPress={() => {
-									setPage(page + 1);
-									flatListRef.current.scrollToOffset({
-										animated: true,
-										offset: 0,
-									});
-								}}
+				{newsApi.data && (
+					<FlatList
+						ref={flatListRef}
+						data={newsApi.data.articles}
+						renderItem={({ item }) => (
+							<Article
+								urlToImage={item.urlToImage}
+								title={item.title}
+								description={item.description}
+								author={item.author}
+								publishedAt={item.publishedAt}
+								source={item.source.name}
+								url={item.url}
 							/>
-						)
-					}
-				/>
+						)}
+						keyExtractor={(item) => item.title}
+						refreshing={refreshing}
+						onRefresh={() => {
+							setPage(1);
+							newsApi.request(country, category, 1);
+						}}
+						ListHeaderComponent={
+							<ListHeader
+								country={country}
+								setCountry={setCountry}
+								category={category}
+								setCategory={setCategory}
+							/>
+						}
+						ListFooterComponent={
+							newsApi.data.articles &&
+							!isOffline && (
+								<NextButton
+									title="More Article"
+									onPress={() => {
+										setPage(page + 1);
+										flatListRef.current.scrollToOffset({
+											animated: true,
+											offset: 0,
+										});
+									}}
+								/>
+							)
+						}
+					/>
+				)}
 			</Screen>
 		</>
 	);
