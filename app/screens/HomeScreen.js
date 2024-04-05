@@ -76,8 +76,8 @@ const HomeScreen = () => {
 								url={item.url}
 							/>
 						)}
-						keyExtractor={(item) => item.title}
-						refreshing={refreshing}
+						keyExtractor={(item) => item.id}
+						refreshing={newsApi.loading}
 						onRefresh={() => {
 							setPage(1);
 							newsApi.request(country, category, 1);
