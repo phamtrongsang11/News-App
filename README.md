@@ -12,5 +12,7 @@ To run the app, simply run:
 - And scan the QR code in the Expo client app.
 
 ## Expo demo (You can scan qr code below with your expo app)
-<img src="https://user-images.githubusercontent.com/101312630/233988366-ef2e457b-4579-4ced-a98d-e78d0ce6e739.svg"  width="30%" height="30%">
+<img src="https://github.com/phamtrongsang11/News-App/assets/101312630/8ca391f7-8576-439d-814f-d65bcfd214a9"  width="30%" height="30%">
+
+
 
