@@ -14,5 +14,5 @@ To run the app, simply run:
 ## Expo demo (You can scan qr code below with your expo app)
 <img src="https://github.com/phamtrongsang11/News-App/assets/101312630/5579695e-4bc2-445c-936e-6cac3e931eb3"  width="30%" height="30%">
 
-- After scan it, install apk file to run and test in your phone
+- After scanning it, install apk file to run and test in your phone
 
