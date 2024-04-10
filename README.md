@@ -5,6 +5,8 @@ An application that allows users to read news from various sources using React N
 - Access the news via web browser
 - Get all channels around the world based on the language
 <img src="https://user-images.githubusercontent.com/101312630/233991951-45ecdf82-9eea-4b9d-a5db-2bd9c81cf0ee.jpg"  width="30%" height="30%">
+<img src="https://github.com/phamtrongsang11/News-App/assets/101312630/471bddf4-b309-4b43-879b-bb7ce4783908"  width="30%" height="30%">
+<img src="https://github.com/phamtrongsang11/News-App/assets/101312630/6b48bf70-33b1-4e7c-b1a4-ac0704f7f83b"  width="30%" height="30%">
 
 ## Getting Start
 To run the app, simply run:
